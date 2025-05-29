@@ -45,6 +45,43 @@ Proyek ini merupakan bagian dari Capstone Project yang bertujuan untuk membangun
 - Hasil prediksi disertai probabilitas untuk tiap kelas.
 - Menunjukkan model mampu melakukan prediksi dengan baik pada data nyata.
 
+### 🚀 8. Deployment
+
+Model yang telah dilatih dan disimpan (`model_tf_weather.h5`) di-*deploy* dalam bentuk REST API menggunakan **Flask**. API ini memungkinkan pengguna untuk mengirim data cuaca dalam format JSON dan menerima prediksi kondisi cuaca sebagai respons.
+
+#### 🔧 Teknologi
+- Flask (untuk membuat REST API)
+- TensorFlow (untuk model prediksi)
+- Joblib (untuk menyimpan dan memuat preprocessing: `scaler`, `label_encoder`)
+
+#### 📥 Input API (`POST /predict`)
+```json
+{
+  "data": [[
+    28.5, 34.0, 25.1, // suhu: rata-rata, max, min
+    78.2,             // kelembapan
+    4.3,              // curah hujan
+    6.8,              // lama penyinaran matahari
+    9.2, 5.5,         // kecepatan angin max, rata-rata
+    180.0             // ← contoh fitur ke-9 (misalnya arah angin atau lainnya)
+  ]]
+}
+```
+### 📌 Langkah Menjalankan API
+jalankan dan simpan model dan preprocessing:
+ - model.save("model_tf_weather.h5")
+ - joblib.dump(scaler, "scaler.save")
+ - joblib.dump(label_encoder, "label_encoder.save")
+cukup dengan menjalankan file Weather Prediction_Capstone Project.ipynb
+
+Jalankan file app.py di terminal:
+python app.py
+
+setelah local host aktif kita uji dengan sampe data dari json yang udah kita buat dengan perintah berikut:
+curl -X POST http://127.0.0.1:5000/predict -H "Content-Type: application/json" -d @sample.json
+
+maka output akan menampilkan hasil dari model
+
 ## 📊 Hasil Evaluasi
 
 - Akurasi model terbaik (MLP TensorFlow) cukup tinggi dengan hasil yang stabil pada training dan validation.
