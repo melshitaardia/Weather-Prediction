@@ -30,7 +30,7 @@ Proyek ini merupakan bagian dari Capstone Project yang bertujuan untuk membangun
 - Visualisasi distribusi dan korelasi antar fitur menggunakan `matplotlib` dan `seaborn`.
 - Tujuan EDA adalah untuk memahami pola dan fitur penting dalam prediksi cuaca.
 
-### 6. Pemodelan
+### 6. Modeling
 - Beberapa model diuji, di antaranya:
   - Random Forest
   - XGBoost
