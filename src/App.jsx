@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'; // Kembalikan useLocation
+import { Routes, Route, useLocation } from 'react-router-dom'; 
 
 import { Navbar } from './components/Navbar';
 import Hero from './Pages/HomePage/Hero';
